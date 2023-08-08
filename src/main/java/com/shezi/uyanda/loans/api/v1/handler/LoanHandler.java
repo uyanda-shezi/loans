@@ -1,7 +1,7 @@
 package com.shezi.uyanda.loans.api.v1.handler;
 
-import com.shezi.uyanda.loans.api.v1.dao.LoanDao;
-import com.shezi.uyanda.loans.api.v1.model.Loan;
+import com.shezi.uyanda.loans.api.v1.dao.LoansDao;
+import com.shezi.uyanda.loans.api.v1.model.Loans;
 import com.shezi.uyanda.loans.api.v1.model.LoanRequest;
 import com.shezi.uyanda.loans.api.v1.model.LoanResponse;
 import org.springframework.stereotype.Component;
@@ -9,19 +9,19 @@ import org.springframework.stereotype.Component;
 @Component(LoanHandler.BEAN_NAME)
 public class LoanHandler {
     public static final String BEAN_NAME = "handler.LoanHandler";
-    private final LoanDao loanDao;
+    private final LoansDao loansDao;
 
-    public LoanHandler(final LoanDao aLoanDao){
-        this.loanDao = aLoanDao;
+    public LoanHandler(final LoansDao aLoansDao){
+        this.loansDao = aLoansDao;
     }
 
     public LoanResponse getLoansById(LoanRequest request){
-        return mapToResponse(loanDao.findByLoanNumber((long)request.getLoanId()));
+        return mapToResponse(loansDao.findByLoanNumber(request.getLoanNumber()));
     }
 
-    private LoanResponse mapToResponse(Loan loan) {
+    private LoanResponse mapToResponse(Loans loans) {
         LoanResponse response = new LoanResponse();
-        response.setLoan(loan);
+        response.setLoans(loans);
         return response;
     }
 }

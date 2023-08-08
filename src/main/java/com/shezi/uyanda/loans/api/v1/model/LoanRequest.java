@@ -6,5 +6,5 @@ import lombok.Setter;
 @Getter
 @Setter
 public class LoanRequest {
-    private int loanId;
+    private int loanNumber;
 }

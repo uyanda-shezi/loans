@@ -6,5 +6,5 @@ import lombok.Setter;
 @Getter
 @Setter
 public class LoanResponse {
-    private Loan loan;
+    private Loans loans;
 }
