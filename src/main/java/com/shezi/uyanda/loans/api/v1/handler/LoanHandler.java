@@ -16,7 +16,7 @@ public class LoanHandler {
     }
 
     public LoanResponse getLoansById(LoanRequest request){
-        return mapToResponse(loanDao.findByLoanId((long)request.getLoanId()));
+        return mapToResponse(loanDao.findByLoanNumber((long)request.getLoanId()));
     }
 
     private LoanResponse mapToResponse(Loan loan) {

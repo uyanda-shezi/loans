@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface LoanDao extends CrudRepository<Loan, Long> {
 
-    Loan findByLoanId(Long id);
+    Loan findByLoanNumber(Long id);
 }
