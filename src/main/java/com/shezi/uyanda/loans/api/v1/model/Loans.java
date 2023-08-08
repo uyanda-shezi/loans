@@ -11,10 +11,10 @@ import java.sql.Date;
 @Entity
 @Getter
 @Setter
-public class Loan {
+public class Loans {
     @Id
     @Column(name = "loan_number")
-    private int loanNumber;
+    private long loanNumber;
 
     @Column(name = "customer_id")
     private int customerId;
